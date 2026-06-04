@@ -2,6 +2,7 @@ import type { HarnessConfig, RawHarnessConfig } from "../types/index.ts";
 
 export const DEFAULT_HARNESS_CONFIG: HarnessConfig = {
   enabled: true,
+  trigger_mode: "manual",
   profile: "legal-writer",
   industry: "legal",
   enhance_mode: "standard",
@@ -22,6 +23,7 @@ export function loadHarnessConfig(raw: RawHarnessConfig = {}): HarnessConfig {
   return {
     ...DEFAULT_HARNESS_CONFIG,
     enabled: raw.enabled ?? DEFAULT_HARNESS_CONFIG.enabled,
+    trigger_mode: raw.trigger_mode ?? DEFAULT_HARNESS_CONFIG.trigger_mode,
     profile,
     industry: raw.industry ?? DEFAULT_HARNESS_CONFIG.industry,
     enhance_mode: raw.enhance_mode ?? DEFAULT_HARNESS_CONFIG.enhance_mode,

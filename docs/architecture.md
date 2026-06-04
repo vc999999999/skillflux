@@ -7,6 +7,7 @@ SkillFlux gateway.
 host agent
   -> host adapter
   -> core request detection
+  -> trigger mode gate (manual: only explicit invocations)
   -> legal-writer public checks
   -> headers + metadata.skillflux_harness
   -> SkillFlux gateway
@@ -19,9 +20,23 @@ shape, and public check results. The gateway owns hidden workflow selection,
 step routing, hidden prompt injection, logging, billing, and cleanup before the
 upstream provider receives the request.
 
+## Trigger Modes
+
+- **`manual`** (default): The harness only processes requests that carry an
+  explicit invocation marker — either a slash command (`/legal-writer`,
+  `/skillflux`) in the user text, or a `skillflux_explicit_invocation` metadata
+  flag set by the adapter. All other requests pass through untouched. This
+  prevents the plugin from intercepting every model request automatically.
+
+- **`auto`** (legacy): The harness processes every request that reaches the
+  adapter, regardless of invocation markers. This requires platform-specific
+  always-on interception (Cursor `entry`, OpenCode `buildHarnessRequest`).
+  To fully restore auto mode on Claude Code/Codex, the SKILL.md description
+  must also be reverted to broad intent-matching text.
+
 ## Packages
 
-- `packages/core`: shared request detection, config, session, signals, metadata.
+- `packages/core`: shared request detection, config, session, signals, metadata, trigger mode.
 - `packages/cli`: `skillflux-harness` debug and local diagnostics.
-- `packages/adapters`: thin host-specific wrappers around core.
+- `packages/adapters`: thin host-specific wrappers around core; shared `mark-invocation` utility.
 - `packages/industries/legal`: public `legal-writer` checks.

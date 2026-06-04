@@ -1,6 +1,11 @@
 {
   "name": "skillflux-plugin",
   "version": "0.1.0",
-  "description": "SkillFlux local harness for Cursor legal-writer signals.",
-  "entry": "packages/adapters/cursor/src/index.ts"
+  "description": "SkillFlux local harness for Cursor legal-writer signals. Only activates when the user explicitly invokes the legal-writer command.",
+  "commands": {
+    "legal-writer": {
+      "description": "Invoke the SkillFlux legal-writer harness for this request",
+      "entry": "packages/adapters/cursor/src/index.ts"
+    }
+  }
 }

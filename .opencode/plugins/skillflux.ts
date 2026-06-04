@@ -2,7 +2,12 @@ import { buildOpenCodeHarnessRequest } from "../../packages/adapters/opencode/sr
 
 export const SkillFluxOpenCodePlugin = {
   name: "skillflux-plugin",
-  async buildHarnessRequest(request: Record<string, unknown>) {
-    return buildOpenCodeHarnessRequest(request);
+  commands: {
+    "legal-writer": {
+      description: "Invoke the SkillFlux legal-writer harness",
+      async handler(request: Record<string, unknown>) {
+        return buildOpenCodeHarnessRequest(request, { explicit: true });
+      }
+    }
   }
 };

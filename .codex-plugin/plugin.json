@@ -26,8 +26,7 @@
       "Interactive"
     ],
     "defaultPrompt": [
-      "Configure SkillFlux legal-writer for this project.",
-      "Debug the SkillFlux harness signals for this request."
+      "/legal-writer"
     ],
     "brandColor": "#2563EB",
     "screenshots": []

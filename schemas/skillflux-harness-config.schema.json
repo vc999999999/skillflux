@@ -6,6 +6,7 @@
   "additionalProperties": false,
   "properties": {
     "enabled": { "type": "boolean" },
+    "trigger_mode": { "type": "string", "enum": ["manual", "auto"], "default": "manual" },
     "profile": { "type": "string", "default": "legal-writer" },
     "default_profile": { "type": "string" },
     "industry": { "type": "string", "default": "legal" },

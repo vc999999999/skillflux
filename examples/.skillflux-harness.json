@@ -1,5 +1,6 @@
 {
   "enabled": true,
+  "trigger_mode": "manual",
   "profile": "legal-writer",
   "industry": "legal",
   "enhance_mode": "standard",

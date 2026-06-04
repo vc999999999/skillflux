@@ -4,10 +4,12 @@ import {
   buildHarnessRequest,
   currentSession,
   detectRequestShape,
+  isExplicitInvocation,
   loadHarnessConfig,
   resetSession,
   runLegalWriterCheck
 } from "../../core/src/index.ts";
+import type { TriggerMode } from "../../core/src/index.ts";
 
 type JsonObject = Record<string, unknown>;
 
@@ -25,6 +27,7 @@ async function main(): Promise<void> {
       writeJson(await buildHarnessRequest(readInput(args), {
         client: readFlag(args, "--client") ?? "http-proxy",
         sessionKey: readFlag(args, "--session-key") ?? "cli",
+        trigger_mode: readFlag(args, "--trigger-mode") as TriggerMode | undefined,
         config: loadHarnessConfig({})
       }));
       return;
@@ -35,6 +38,7 @@ async function main(): Promise<void> {
       writeJson({
         ok: true,
         profile: "legal-writer",
+        trigger_mode: loadHarnessConfig({}).trigger_mode,
         supported_requests: ["chat", "claude", "responses"]
       });
       return;
@@ -86,7 +90,7 @@ function printHelp(): void {
 Commands:
   detect --input request.json
   check --input request.json
-  debug --input request.json [--client codex]
+  debug --input request.json [--client codex] [--trigger-mode manual|auto]
   session current [--session-key key]
   session reset [--session-key key]
   doctor
