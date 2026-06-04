@@ -48,8 +48,8 @@ test("injects legal-writer headers and preserves existing metadata", async () =>
 test("reuses a session id for the same agent task", async () => {
   resetSession("stable-task");
   const config = loadHarnessConfig({});
-  const first = await buildHarnessRequest({ model: "gpt-4.1", messages: [{ role: "user", content: "/legal-writer test" }] }, { client: "cursor", sessionKey: "stable-task", trigger_mode: "manual", config });
-  const second = await buildHarnessRequest({ model: "gpt-4.1", messages: [{ role: "user", content: "/legal-writer test" }] }, { client: "cursor", sessionKey: "stable-task", trigger_mode: "manual", config });
+  const first = await buildHarnessRequest({ model: "gpt-4.1", messages: [{ role: "user", content: "/legal-writer test" }] }, { client: "codex", sessionKey: "stable-task", trigger_mode: "manual", config });
+  const second = await buildHarnessRequest({ model: "gpt-4.1", messages: [{ role: "user", content: "/legal-writer test" }] }, { client: "codex", sessionKey: "stable-task", trigger_mode: "manual", config });
 
   assert.equal(second.headers["x-sf-session-id"], first.headers["x-sf-session-id"]);
 });
@@ -158,7 +158,7 @@ test("manual mode: processes request with metadata.skillflux_explicit_invocation
   };
 
   const result = await buildHarnessRequest(request, {
-    client: "cursor",
+    client: "codex",
     sessionKey: "manual-with-metadata-flag",
     trigger_mode: "manual",
     config: loadHarnessConfig({})

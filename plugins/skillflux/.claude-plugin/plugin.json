@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "skillflux",
+  "version": "0.1.0",
+  "description": "SkillFlux harness for Claude Code legal-writer signals. Observes model requests, injects structured metadata, and forwards signals to the SkillFlux gateway for workflow orchestration.",
+  "author": {
+    "name": "vc999999999",
+    "email": "vc999999999@users.noreply.github.com",
+    "url": "https://github.com/vc999999999"
+  },
+  "homepage": "https://github.com/vc999999999/skillflux",
+  "repository": "https://github.com/vc999999999/skillflux",
+  "license": "MIT",
+  "keywords": ["skillflux", "harness", "legal-writer", "agent", "signals"],
+  "hooks": {}
+}

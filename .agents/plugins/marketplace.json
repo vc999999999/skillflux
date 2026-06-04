@@ -1,0 +1,20 @@
+{
+  "name": "skillflux-marketplace",
+  "interface": {
+    "displayName": "SkillFlux Marketplace"
+  },
+  "plugins": [
+    {
+      "name": "skillflux",
+      "source": {
+        "source": "local",
+        "path": "./plugins/skillflux"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

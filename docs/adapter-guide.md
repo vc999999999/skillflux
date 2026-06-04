@@ -13,9 +13,6 @@ client values below:
 
 - Codex: `codex`
 - Claude Code: `claude-code`
-- Cursor: `cursor`
-- OpenCode: `opencode`
-- Generic proxy: `http-proxy`
 
 For unsupported request shapes, keep the original request and forward without
 harness metadata.
@@ -30,10 +27,8 @@ Adapters must respect `trigger_mode` from config:
   the shared adapter utility before calling `buildHarnessRequest`. Requests
   without this marker will be passed through untouched by the core pipeline.
 
-- **`auto` mode** (legacy): Adapters process all requests through the harness
-  pipeline regardless of invocation markers. This mode requires always-on
-  interception (e.g., Cursor `entry` field, OpenCode top-level `buildHarnessRequest`
-  export).
+- **`auto` mode`** (legacy): Adapters process all requests through the harness
+  pipeline regardless of invocation markers.
 
 ## Explicit Invocation
 

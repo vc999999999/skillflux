@@ -5,9 +5,6 @@ export type SupportedRequestShape = "chat" | "claude" | "responses" | "unknown";
 export type SkillFluxClient =
   | "codex"
   | "claude-code"
-  | "cursor"
-  | "opencode"
-  | "http-proxy"
   | string;
 
 export interface HarnessConfig {
