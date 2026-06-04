@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://skillflux.local/schemas/skillflux-signals.v1.schema.json",
+  "title": "SkillFlux Harness Signals v1",
+  "type": "object",
+  "required": ["skillflux_harness"],
+  "properties": {
+    "skillflux_harness": {
+      "type": "object",
+      "required": [
+        "session_id",
+        "profile",
+        "client",
+        "plugin_version",
+        "enhance_mode",
+        "industry_hint",
+        "task_hint",
+        "request_type",
+        "artifact_type",
+        "step_hint",
+        "local_checks"
+      ],
+      "properties": {
+        "session_id": { "type": "string", "pattern": "^sess_" },
+        "profile": { "type": "string", "const": "legal-writer" },
+        "client": { "type": "string" },
+        "plugin_version": { "type": "string" },
+        "enhance_mode": { "type": "string" },
+        "industry_hint": { "type": "string", "const": "legal" },
+        "task_hint": { "type": "string", "const": "legal_writing" },
+        "request_type": { "type": "string" },
+        "artifact_type": { "type": "string", "const": "legal_document" },
+        "step_hint": { "type": "string" },
+        "local_checks": {
+          "type": "object",
+          "required": [
+            "document_type",
+            "has_party_names",
+            "has_claims_or_terms",
+            "has_legal_basis",
+            "risk_level"
+          ],
+          "properties": {
+            "document_type": { "type": "string" },
+            "has_party_names": { "type": "boolean" },
+            "has_claims_or_terms": { "type": "boolean" },
+            "has_legal_basis": { "type": "boolean" },
+            "risk_level": {
+              "type": "string",
+              "enum": ["unknown", "low", "medium", "high"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

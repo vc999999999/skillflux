@@ -1,0 +1,6 @@
+{
+  "name": "skillflux-plugin",
+  "version": "0.1.0",
+  "description": "SkillFlux local harness for Cursor legal-writer signals.",
+  "entry": "packages/adapters/cursor/src/index.ts"
+}

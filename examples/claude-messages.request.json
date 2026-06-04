@@ -1,0 +1,13 @@
+{
+  "model": "claude-sonnet-4",
+  "max_tokens": 1024,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Review this NDA and identify missing party names and dispute terms."
+    }
+  ],
+  "metadata": {
+    "keep": "visible"
+  }
+}

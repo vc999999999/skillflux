@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://skillflux.local/schemas/industry-manifest.schema.json",
+  "title": "SkillFlux Industry Manifest",
+  "type": "object",
+  "required": ["name", "version", "profiles", "checks"],
+  "properties": {
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "profiles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "entry", "outputs"],
+        "properties": {
+          "name": { "type": "string" },
+          "entry": { "type": "string" },
+          "outputs": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "contains_hidden_prompts": { "type": "boolean", "const": false },
+    "contains_workflow_steps": { "type": "boolean", "const": false }
+  }
+}

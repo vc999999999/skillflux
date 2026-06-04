@@ -1,0 +1,21 @@
+{
+  "name": "skillflux-plugin",
+  "version": "0.1.0",
+  "description": "Local multi-agent harness plugin for SkillFlux legal-writer signals.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "skillflux-harness": "./packages/cli/src/bin.ts"
+  },
+  "scripts": {
+    "test": "node --test --experimental-strip-types tests/**/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^6.0.3"
+  }
+}

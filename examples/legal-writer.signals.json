@@ -1,0 +1,21 @@
+{
+  "skillflux_harness": {
+    "session_id": "sess_example",
+    "profile": "legal-writer",
+    "client": "codex",
+    "plugin_version": "skillflux-plugin/0.1.0",
+    "enhance_mode": "standard",
+    "industry_hint": "legal",
+    "task_hint": "legal_writing",
+    "request_type": "final_answer",
+    "artifact_type": "legal_document",
+    "step_hint": "draft_or_review",
+    "local_checks": {
+      "document_type": "demand_letter",
+      "has_party_names": true,
+      "has_claims_or_terms": true,
+      "has_legal_basis": true,
+      "risk_level": "low"
+    }
+  }
+}

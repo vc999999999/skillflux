@@ -1,0 +1,7 @@
+{
+  "model": "gpt-4.1",
+  "input": "Prepare a short legal memo about a breach of contract claim in New York.",
+  "metadata": {
+    "keep": "visible"
+  }
+}

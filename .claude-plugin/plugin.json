@@ -1,0 +1,7 @@
+{
+  "name": "skillflux-plugin",
+  "version": "0.1.0",
+  "description": "SkillFlux local harness for Claude Code legal-writer signals.",
+  "repository": "https://github.com/vc999999999/skillflux",
+  "license": "MIT"
+}

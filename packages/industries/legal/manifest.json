@@ -1,0 +1,20 @@
+{
+  "name": "legal",
+  "version": "0.1.0",
+  "profiles": ["legal-writer"],
+  "checks": [
+    {
+      "name": "legal-writer",
+      "entry": "./checks/legal-writer.ts",
+      "outputs": [
+        "document_type",
+        "has_party_names",
+        "has_claims_or_terms",
+        "has_legal_basis",
+        "risk_level"
+      ]
+    }
+  ],
+  "contains_hidden_prompts": false,
+  "contains_workflow_steps": false
+}

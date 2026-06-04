@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://skillflux.local/schemas/skillflux-harness-config.schema.json",
+  "title": "SkillFlux Harness Config",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "enabled": { "type": "boolean" },
+    "profile": { "type": "string", "default": "legal-writer" },
+    "default_profile": { "type": "string" },
+    "industry": { "type": "string", "default": "legal" },
+    "enhance_mode": { "type": "string", "default": "standard" },
+    "gateway_base_url": { "type": "string", "format": "uri" },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "strategy": { "type": "string", "default": "agent-task" },
+        "ttl_seconds": { "type": "integer", "minimum": 1, "default": 1800 }
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "max_runtime_ms": { "type": "integer", "minimum": 1, "default": 800 }
+      }
+    }
+  }
+}

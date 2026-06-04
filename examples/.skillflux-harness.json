@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "profile": "legal-writer",
+  "industry": "legal",
+  "enhance_mode": "standard",
+  "gateway_base_url": "https://your-skillflux-gateway.example.com",
+  "session": {
+    "strategy": "agent-task",
+    "ttl_seconds": 1800
+  },
+  "checks": {
+    "enabled": true,
+    "max_runtime_ms": 800
+  }
+}

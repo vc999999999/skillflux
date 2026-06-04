@@ -1,0 +1,8 @@
+{
+  "name": "@skillflux-plugin/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "skillflux-harness": "./src/bin.ts"
+  }
+}
