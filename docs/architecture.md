@@ -29,14 +29,10 @@ upstream provider receives the request.
   prevents the plugin from intercepting every model request automatically.
 
 - **`auto`** (legacy): The harness processes every request that reaches the
-  adapter, regardless of invocation markers. This requires platform-specific
-  always-on interception (Cursor `entry`, OpenCode `buildHarnessRequest`).
-  To fully restore auto mode on Claude Code/Codex, the SKILL.md description
-  must also be reverted to broad intent-matching text.
+  adapter, regardless of invocation markers.
 
 ## Packages
 
 - `packages/core`: shared request detection, config, session, signals, metadata, trigger mode.
 - `packages/cli`: `skillflux-harness` debug and local diagnostics.
-- `packages/adapters`: thin host-specific wrappers around core; shared `mark-invocation` utility.
 - `packages/industries/legal`: public `legal-writer` checks.

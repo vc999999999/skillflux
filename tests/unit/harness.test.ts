@@ -77,7 +77,7 @@ test("degrades to original request when harness is disabled", async () => {
   resetSession("disabled-task");
   const request: Record<string, unknown> = { model: "gpt-4.1", metadata: { keep: "visible" }, messages: [] };
   const result = await buildHarnessRequest(request, {
-    client: "http-proxy",
+    client: "codex",
     sessionKey: "disabled-task",
     config: loadHarnessConfig({ enabled: false })
   });
@@ -97,7 +97,7 @@ test("manual mode: degrades request without explicit invocation", async () => {
   };
 
   const result = await buildHarnessRequest(request, {
-    client: "http-proxy",
+    client: "codex",
     sessionKey: "manual-no-invocation",
     trigger_mode: "manual",
     config: loadHarnessConfig({})

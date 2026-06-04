@@ -6,7 +6,7 @@ SkillFlux Plugin 是一个**本地多 Agent Harness 插件**，用于观察 AI �
 
 - **语言/运行时**: TypeScript (ESM) / Node.js ≥22
 - **架构**: pnpm monorepo，分层设计
-- **支持平台**: Claude Code、Codex、Cursor、OpenCode、通用 HTTP 代理
+- **支持平台**: Claude Code、Codex
 
 ---
 
@@ -14,19 +14,15 @@ SkillFlux Plugin 是一个**本地多 Agent Harness 插件**，用于观察 AI �
 
 ```
 skillflux/
-├── .claude-plugin/          → Claude Code 插件清单 & 市场元数据
-├── .codex-plugin/           → Codex 插件清单（含界面/品牌配置）
-├── .cursor-plugin/          → Cursor 插件清单（含入口路径）
-├── .opencode/               → OpenCode 适配器 & 安装说明
+├── .claude-plugin/          → Claude Code 市场元数据 (marketplace.json)
+├── .agents/plugins/         → Codex 市场元数据 (marketplace.json)
+├── plugins/
+│   └── skillflux/
+│       ├── .claude-plugin/  → Claude Code 插件清单 (plugin.json)
+│       └── .codex-plugin/   → Codex 插件清单 (plugin.json)
 ├── packages/
 │   ├── core/                → 核心库（检测、信号、会话、网关）
 │   ├── cli/                 → CLI 工具 (skillflux-harness)
-│   ├── adapters/            → 5 个平台适配器（薄层包装）
-│   │   ├── claude-code/
-│   │   ├── codex/
-│   │   ├── cursor/
-│   │   ├── opencode/
-│   │   └── http-proxy/
 │   └── industries/          → 行业清单 & 检查
 │       └── legal/           → 法律行业（legal-writer 检查）
 ├── legal-writer/            → 法律文书技能定义（SKILL.md、错误库、参考、验证脚本）
@@ -58,9 +54,6 @@ SkillFlux 插件支持两种触发模式，通过配置 `trigger_mode` 控制：
 |----------|------|
 | **Claude Code /legal-writer** | 用户输入 `/legal-writer` → 识别为显式调用 → 触发 harness 流程 |
 | **Codex /legal-writer** | 用户选择插件或输入 `/legal-writer` → 触发 |
-| **Cursor legal-writer 命令** | 用户通过 Cursor 命令面板调用 → 触发 |
-| **OpenCode legal-writer 命令** | 用户通过 OpenCode 命令调用 → 触发 |
-| **HTTP 代理调用** | 调用者显式请求 → 标记为显式调用 → 触发 |
 | **CLI 手动调用** | `skillflux-harness detect/check/debug/session/doctor` → 手动触发 |
 
 > **注意**: 在手动模式下，普通对话（无 `/legal-writer` 前缀）不会触发 harness，请求原样透传。
@@ -136,7 +129,7 @@ SkillFlux 插件支持两种触发模式，通过配置 `trigger_mode` 控制：
 |------|------|--------|
 | `session_id` | 会话唯一标识 | `sess_a1b2c3d4` |
 | `profile` | 当前技能 profile | `legal-writer` |
-| `client` | 来源平台 | `claude-code` / `codex` / `cursor` |
+| `client` | 来源平台 | `claude-code` / `codex` |
 | `plugin_version` | 插件版本 | `0.1.0` |
 | `enhance_mode` | 增强模式 | `standard` |
 | `industry_hint` | 行业提示 | `legal` |
@@ -188,7 +181,7 @@ SkillFlux 插件支持两种触发模式，通过配置 `trigger_mode` 控制：
 
 - `enabled: false` → 不触发任何信号注入（降级模式）
 - `checks.legal_writer: false` → 跳过本地法律文书检查
-- `gateway_base_url` → 指定远程网关地址（用于 `forwardToSkillFlux`）
+- `gateway_base_url` → 指定远程网关地址
 
 ---
 

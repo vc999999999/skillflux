@@ -25,7 +25,7 @@ async function main(): Promise<void> {
       return;
     case "debug":
       writeJson(await buildHarnessRequest(readInput(args), {
-        client: readFlag(args, "--client") ?? "http-proxy",
+        client: readFlag(args, "--client") ?? "codex",
         sessionKey: readFlag(args, "--session-key") ?? "cli",
         trigger_mode: readFlag(args, "--trigger-mode") as TriggerMode | undefined,
         config: loadHarnessConfig({})

@@ -5,7 +5,7 @@
 ```http
 x-sf-session-id: sess_xxx
 x-sf-profile: legal-writer
-x-sf-client: codex|claude-code|cursor|opencode|http-proxy
+x-sf-client: codex|claude-code
 x-sf-plugin-version: skillflux-plugin/0.1.0
 x-sf-enhance-mode: standard
 x-sf-signals-version: 1
