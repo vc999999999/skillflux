@@ -5,6 +5,7 @@
     "client": "codex",
     "plugin_version": "skillflux-plugin/0.1.0",
     "enhance_mode": "standard",
+    "workflow_hint": "legal-writer-harness",
     "industry_hint": "legal",
     "task_hint": "legal_writing",
     "request_type": "final_answer",
@@ -15,7 +16,21 @@
       "has_party_names": true,
       "has_claims_or_terms": true,
       "has_legal_basis": true,
-      "risk_level": "low"
+      "risk_level": "low",
+      "content_completeness": {
+        "status": "complete",
+        "score": 1,
+        "missing": [],
+        "present": [
+          "document_type",
+          "party_names",
+          "claims_or_terms",
+          "legal_basis"
+        ]
+      },
+      "industry_evidence": [
+        "\\b(contract|agreement|nda|demand letter|complaint|memo|brief|legal|law|statute|regulation)\\b"
+      ]
     }
   }
 }

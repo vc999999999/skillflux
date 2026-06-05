@@ -44,18 +44,41 @@ export interface LegalWriterChecks {
   risk_level: "unknown" | "low" | "medium" | "high";
 }
 
+export interface ContentCompletenessCheck {
+  status: "complete" | "incomplete";
+  score: number;
+  missing: string[];
+  present: string[];
+}
+
+export type HarnessLocalChecks = LegalWriterChecks & {
+  content_completeness: ContentCompletenessCheck;
+  industry_evidence: string[];
+};
+
+export interface HarnessIntent {
+  industry: string;
+  profile: string;
+  workflow_hint: string;
+  task_hint: string;
+  artifact_type: string;
+  step_hint: string;
+  evidence: string[];
+}
+
 export interface SkillFluxHarnessMetadata {
   session_id: string;
   profile: string;
   client: string;
   plugin_version: string;
   enhance_mode: string;
+  workflow_hint: string;
   industry_hint: string;
   task_hint: "legal_writing" | string;
   request_type: "final_answer" | string;
   artifact_type: "legal_document" | string;
   step_hint: "draft_or_review" | string;
-  local_checks: LegalWriterChecks;
+  local_checks: HarnessLocalChecks;
 }
 
 export interface HarnessBuildOptions {

@@ -25,7 +25,8 @@ Adapters must respect `trigger_mode` from config:
   invoked when the platform's invocation mechanism provides that signal (slash
   command, platform command). Use `markExplicitInvocation(request, true)` from
   the shared adapter utility before calling `buildHarnessRequest`. Requests
-  without this marker will be passed through untouched by the core pipeline.
+  without this marker will be passed through untouched by the core pipeline:
+  no SkillFlux metadata, headers, local checks, or skill routing.
 
 - **`auto` mode`** (legacy): Adapters process all requests through the harness
   pipeline regardless of invocation markers.

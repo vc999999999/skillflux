@@ -1,0 +1,13 @@
+{
+  "model": "deepseek-v4-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Draft a demand letter to BuildRight LLC for unpaid invoices under Delaware law."
+    }
+  ],
+  "metadata": {
+    "keep": "visible"
+  },
+  "skillflux_explicit_invocation": true
+}

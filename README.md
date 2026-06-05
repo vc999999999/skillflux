@@ -1,9 +1,11 @@
 # SkillFlux Plugin
 
-Local multi-agent harness for SkillFlux. The plugin observes supported model
-requests, adds `legal-writer` harness signals, and forwards those signals to the
-SkillFlux gateway. Workflow selection, hidden prompts, step routing, billing,
-logging, and metadata cleanup remain remote gateway responsibilities.
+Local multi-agent harness for SkillFlux. By default it is manual-only: ordinary
+model requests are passed through unchanged, with no SkillFlux headers,
+metadata, local checks, or skill routing. When the user explicitly invokes
+SkillFlux, the plugin adds harness signals and forwards them to the SkillFlux
+gateway. Workflow selection, hidden prompts, step routing, billing, logging, and
+metadata cleanup remain remote gateway responsibilities.
 
 ## MVP
 
@@ -12,6 +14,8 @@ logging, and metadata cleanup remain remote gateway responsibilities.
 - Request shapes: OpenAI Chat Completions, OpenAI Responses, Claude Messages
 - Local output: headers plus `metadata.skillflux_harness`
 - Local checks: public legal document signals only
+- Default trigger mode: manual; use `/legal-writer`, `/skillflux`, or an adapter
+  invocation marker to run SkillFlux
 
 ## Commands
 

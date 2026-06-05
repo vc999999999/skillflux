@@ -17,5 +17,8 @@
   "devDependencies": {
     "@types/node": "^25.9.1",
     "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "npx": "^10.2.2"
   }
 }

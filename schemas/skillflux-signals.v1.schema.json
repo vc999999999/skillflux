@@ -13,6 +13,7 @@
         "client",
         "plugin_version",
         "enhance_mode",
+        "workflow_hint",
         "industry_hint",
         "task_hint",
         "request_type",
@@ -22,14 +23,18 @@
       ],
       "properties": {
         "session_id": { "type": "string", "pattern": "^sess_" },
-        "profile": { "type": "string", "const": "legal-writer" },
+        "profile": { "type": "string" },
         "client": { "type": "string" },
         "plugin_version": { "type": "string" },
         "enhance_mode": { "type": "string" },
-        "industry_hint": { "type": "string", "const": "legal" },
-        "task_hint": { "type": "string", "const": "legal_writing" },
+        "workflow_hint": { "type": "string" },
+        "industry_hint": {
+          "type": "string",
+          "enum": ["legal", "ecommerce", "finance", "medical", "education", "general"]
+        },
+        "task_hint": { "type": "string" },
         "request_type": { "type": "string" },
-        "artifact_type": { "type": "string", "const": "legal_document" },
+        "artifact_type": { "type": "string" },
         "step_hint": { "type": "string" },
         "local_checks": {
           "type": "object",
@@ -38,7 +43,9 @@
             "has_party_names",
             "has_claims_or_terms",
             "has_legal_basis",
-            "risk_level"
+            "risk_level",
+            "content_completeness",
+            "industry_evidence"
           ],
           "properties": {
             "document_type": { "type": "string" },
@@ -48,7 +55,18 @@
             "risk_level": {
               "type": "string",
               "enum": ["unknown", "low", "medium", "high"]
-            }
+            },
+            "content_completeness": {
+              "type": "object",
+              "required": ["status", "score", "missing", "present"],
+              "properties": {
+                "status": { "type": "string", "enum": ["complete", "incomplete"] },
+                "score": { "type": "number", "minimum": 0, "maximum": 1 },
+                "missing": { "type": "array", "items": { "type": "string" } },
+                "present": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "industry_evidence": { "type": "array", "items": { "type": "string" } }
           }
         }
       }

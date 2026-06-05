@@ -1,7 +1,7 @@
 {
   "name": "skillflux",
-  "version": "0.1.0",
-  "description": "SkillFlux harness for Codex legal-writer signals. Observes model requests, injects structured metadata, and forwards signals to the SkillFlux gateway for workflow orchestration.",
+  "version": "0.1.0+codex.20260605010745",
+  "description": "Manual SkillFlux harness for Codex. It only runs after an explicit SkillFlux invocation and then forwards structured signals to the SkillFlux gateway.",
   "author": {
     "name": "vc999999999",
     "email": "vc999999999@users.noreply.github.com",
@@ -10,18 +10,25 @@
   "homepage": "https://github.com/vc999999999/skillflux",
   "repository": "https://github.com/vc999999999/skillflux",
   "license": "MIT",
-  "keywords": ["skillflux", "harness", "legal-writer", "agent", "signals"],
+  "keywords": [
+    "skillflux",
+    "harness",
+    "legal-writer",
+    "agent",
+    "signals"
+  ],
   "interface": {
     "displayName": "SkillFlux Plugin",
-    "shortDescription": "Local harness signals for SkillFlux legal-writer",
-    "longDescription": "Adds local legal-writer harness signals to supported Codex model requests while keeping hidden workflow logic in the SkillFlux gateway. Currently focused on legal-writer document drafting with local checks and metadata injection.",
+    "shortDescription": "Manual-only SkillFlux harness signals",
+    "longDescription": "Runs only when SkillFlux is explicitly invoked through a slash command or platform command. Ordinary Codex requests are left untouched; no SkillFlux metadata, headers, local checks, or skill routing are applied unless the request carries an explicit invocation marker.",
     "developerName": "vc999999999",
     "category": "Productivity",
-    "capabilities": ["Read", "Write"],
+    "capabilities": [
+      "Read"
+    ],
     "websiteURL": "https://github.com/vc999999999/skillflux",
     "defaultPrompt": [
-      "/legal-writer Draft a demand letter for unpaid invoices.",
-      "/legal-writer Draft a complaint against [party] under [state] law."
+      "/skillflux Run the manual SkillFlux harness for this request."
     ],
     "brandColor": "#2563EB",
     "screenshots": []

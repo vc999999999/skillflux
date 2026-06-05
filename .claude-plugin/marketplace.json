@@ -2,7 +2,7 @@
   "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
   "name": "skillflux-marketplace",
   "version": "0.1.0",
-  "description": "SkillFlux harness marketplace — local legal-writer signal injection and SkillFlux gateway forwarding.",
+  "description": "SkillFlux harness marketplace — manual-only signal injection and SkillFlux gateway forwarding.",
   "owner": {
     "name": "vc999999999",
     "email": "vc999999999@users.noreply.github.com"
@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "skillflux",
-      "description": "SkillFlux harness for Claude Code legal-writer signals. Observes model requests, injects structured metadata, and forwards signals to the SkillFlux gateway for workflow orchestration.",
+      "description": "Manual SkillFlux harness for Claude Code. Requests are untouched unless the user explicitly invokes SkillFlux.",
       "source": "./plugins/skillflux",
       "category": "productivity",
       "tags": ["skillflux", "harness", "legal-writer", "agent", "signals"]

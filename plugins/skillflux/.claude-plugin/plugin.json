@@ -1,8 +1,8 @@
 {
   "$schema": "https://www.schemastore.org/claude-code-plugin-manifest.json",
   "name": "skillflux",
-  "version": "0.1.0",
-  "description": "SkillFlux harness for Claude Code legal-writer signals. Observes model requests, injects structured metadata, and forwards signals to the SkillFlux gateway for workflow orchestration.",
+  "version": "0.1.0+codex.20260605010745",
+  "description": "Manual SkillFlux harness for Claude Code. It only runs after an explicit SkillFlux invocation and then forwards structured signals to the SkillFlux gateway.",
   "author": {
     "name": "vc999999999",
     "email": "vc999999999@users.noreply.github.com",
